@@ -1,0 +1,124 @@
+.site-header {
+  position: relative;
+  font-family: CocomatLight, sans-serif;
+  height: 70px;
+  padding: 0 3.6rem 0 5rem;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.03);
+  .navbar {
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    padding: 0;
+    height: 100%;
+    .form-group {
+      margin-bottom: 0;
+    }
+    .menu {
+      display: flex;
+      align-items: center;
+      margin-right: auto;
+      margin-left: 6rem;
+      @include respond(tab-port) {
+        display: none;
+      }
+      li {
+        margin-right: 5rem;
+        cursor: pointer;
+        & > a {
+          //padding: 2rem 0;
+        }
+        &:hover {
+          ul {
+            opacity: 1;
+            max-height: 500px;
+            visibility: visible;
+            transform: translateY(0);
+          }
+          &:after {
+            transform: rotate(-180deg);
+          }
+          & > a {
+            &:after {
+              opacity: 1;
+              width: 100%;
+            }
+          }
+        }
+        a {
+          color: $black;
+          position: relative;
+          &:after {
+            @include transition();
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 2px;
+            background-color: $color-primary;
+            opacity: 0;
+          }
+        }
+      }
+    }
+    .block-right {
+      display: flex;
+      align-items: center;
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+    .dropdown {
+      position: relative;
+      &:after {
+        @include transition();
+        content: '\f107';
+        font-family: FontAwesome;
+        position: absolute;
+        right: -2rem;
+        top: 0.1rem;
+        font-size: 16px;
+      }
+      &__content {
+        @include transition();
+        visibility: hidden;
+        position: absolute;
+        opacity: 0;
+        max-height: 0;
+        z-index: 20;
+        top: 3.5rem;
+        left: -100px;
+        background-color: $white;
+        transform: translateY(-15px);
+        box-shadow: -1px 0rem 3rem rgba(0, 0, 0, 0.3);
+        border-radius: 8px 8px;
+        &:before {
+          content: '\f0d8';
+          font-family: FontAwesome;
+          position: absolute;
+          top: -3.2rem;
+          right: 1.8rem;
+          color: $white;
+          font-size: 3.5rem;
+        }
+        li {
+          padding: 1rem 2.5rem;
+          margin-right: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+    .selectpicker {
+      border: none;
+      cursor: pointer;
+      margin-left: 2.5rem;
+      height: 3rem;
+      option {
+        border: none;
+      }
+    }
+  }
+}

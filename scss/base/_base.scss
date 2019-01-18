@@ -1,0 +1,56 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //This defines what 1rem is (10px)
+  font-size: 62.5%;
+  @include respond(tab-land) {
+    font-size: 56.5%;
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+  //@include respond(big-desktop) {
+  //  font-size: 75%;
+  //}
+}
+
+//html, body {
+//  overflow-x: hidden;
+//}
+
+ul {
+  margin-bottom: 0;
+  li {
+    list-style-type: none;
+  }
+}
+
+.main {
+  min-height: 70rem;
+}
+
+body {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+a {
+  -webkit-font-smoothing: antialiased;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
